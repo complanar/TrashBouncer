@@ -8,7 +8,7 @@
 *.out
 Thumbs.db
 
-# IDE files to ignore (Netbeans, Eclipse)
+# IDE files to ignore (Netbeans, Eclipse, Aptana)
 nbproject/
 .build/
 .buildpath
