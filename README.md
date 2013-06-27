@@ -61,22 +61,23 @@ text as two letter ISO-Code for example "en" or "de".
     $filter->classify($text, $lang);
 
 This method will return an array of the following form:
-    array \{
-        \["isSpam"\]           => bool  # Guess if this text is spam or not
-        \["probability"\]      => float # Probability between 0 and 1. 
-                                        # The closer to 1 the more sure you 
-                                        # can be it is a spam text
-        \["stopwords"\]        => array # list of stopwords in $text
-        \["stopwordscount"\]   => int   # number of stopwords in $text
-        \["ignorewords"\]      => array # list of ignored words in $text
-        \["ignorewordscount"\] => int   # number of ignored words in $text
-        \["tokens"\]           => array # list of tokens in $text
-        \["tokenscount"\]      => int   # number of tokens in $text
-        \["smalltokenscount"\] => int   # number of very short tokens in $text
-        \["largetokenscount"\] => int   # number of very long tokens in $text
-        \["fataltokenscount"\] => int   # number of extremely long tokens in 
-                                        # $text
-    \}
+    
+    array {
+        ["isSpam"]           => bool  # Guess if this text is spam or not
+        ["probability"]      => float # Probability between 0 and 1. 
+                                      # The closer to 1 the more sure you 
+                                      # can be it is a spam text
+        ["stopwords"]        => array # list of stopwords in $text
+        ["stopwordscount"]   => int   # number of stopwords in $text
+        ["ignorewords"]      => array # list of ignored words in $text
+        ["ignorewordscount"] => int   # number of ignored words in $text
+        ["tokens"]           => array # list of tokens in $text
+        ["tokenscount"]      => int   # number of tokens in $text
+        ["smalltokenscount"] => int   # number of very short tokens in $text
+        ["largetokenscount"] => int   # number of very long tokens in $text
+        ["fataltokenscount"] => int   # number of extremely long tokens in 
+                                      # $text
+    }
 
 #### Check a text, store it in the log table and learn it
     
@@ -91,7 +92,7 @@ If you use that way of classifying a text you can give the log entry a
 caption. If you don't do that the caption is set automatically to 
 'Spam Log'.
 
-    $filter->check($text, $lang \[, $infotext\]);
+    $filter->check($text, $lang [, $infotext]);
 
 #### Quick check on spam
     
@@ -142,7 +143,7 @@ repeat this definition. `$id` can be an integer or an array of integers,
 depending if you want to learn only one or mor entries. For `$category` please 
 use `TrashBouncer::HAM`, `TrashBouncer::SPAM` or `TrashBouncer::UNKNOWN`.
   
-    $adminFilter->learnLogEntry($id, $category \[, $delete\]);
+    $adminFilter->learnLogEntry($id, $category [, $delete]);
 
 The last argument is optional and tells the filter if you want to delete the 
 entry from the log table after learning it.
@@ -180,7 +181,7 @@ You can add, delete and update Stop and Ignorewords for different languages:
   
     $adminFilter->addStopword($word, $lang);
     $adminFilter->delStopword($word, $lang);
-    $adminFilter->updateStopword($oldword, $newword, $lang \[, $newlang\]);
+    $adminFilter->updateStopword($oldword, $newword, $lang [, $newlang]);
 
 For updating Stopwords the last argument defaults to `NULL`. If you don't want 
 to change the language of a word, you can leave it out.
@@ -230,14 +231,14 @@ then one language treated.
     Get a short overview of contained lanugages of an exported file and it's
     author, date and so on. Returns an array of the following form:
   
-        array \{
-            \["description"\] => string # description of this file
-            \["author"\]      => string # author of export
-            \["date"\]        => string # date of export
-            \["file"\]        => string # original filename
-            \["lang"\]        => string # contained languages, useful for later 
-                                        # filtering
-        \}
+        array {
+            ["description"] => string # description of this file
+            ["author"]      => string # author of export
+            ["date"]        => string # date of export
+            ["file"]        => string # original filename
+            ["lang"]        => string # contained languages, useful for later 
+                                      # filtering
+        }
 
 -   `resetTrainingLang($lang [, $createBackup, $filename])`
 -   `deleteLang($lang [, $createBackup, $filename])`
@@ -271,14 +272,14 @@ if 0775 does not work.
 ### Could not load lexer object. File *** not found.
 
 Please check the config file. If you use a custom lexer class you should
-make sure the file is at the right location in the `lexer` directory and is 
+make sure the file is at the right location in the "lexer" directory and is 
 readable.
-The if your lexer is called `mylexer` the file must be named `mylexer.php`.
+The if your lexer is called "mylexer" the file must be named "mylexer.php".
 
 ### Could not load lexer object. Class lexer_*** not found.
-Please check the name of the lexer class defined in `lexer/***.php`
+Please check the name of the lexer class defined in "lexer/***.php"
 It must not have the same name as the file. If your lexer file is called 
-`mylexer.php` the class should have the name `lexer_mylexer`.
+"mylexer.php" the class should have the name "lexer_mylexer".
     
 ### Could not load database driver "***".
 TrashBouncer brings database drivers for many database systems. But maybe 
