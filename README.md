@@ -11,7 +11,7 @@ I didn't like the b8 way of handling the database (because calculating
 spamminess and database actions are mixed up) so I changed the overall
 design of the spamfilter a little bit.
 
-Please visit http://www.complanar.de/trashbouncer.html for help and more
+Please visit <http://www.complanar.de/trashbouncer.html> for help and more
 information.
 
 ### Contents
@@ -49,7 +49,7 @@ information.
 Please include the file TrashBouncer.php in your code and create an Instance 
 of the TrashBouncer Filter:
     
-    require_once(TrashBouncer.php);
+    require_once('TrashBouncer.php');
     $filter = new TrashBouncer();
 
 #### Classify a text
@@ -132,7 +132,7 @@ will have to start a new training from scratch.
 For the following tasks you need the admin class which is a child of our basic
 class. Please include TrashBouncerAdmin.php and use the TrashBouncerAdmin class:
 
-    require_once(TrashBouncerAdmin.php);
+    require_once('TrashBouncerAdmin.php');
     $adminFilter = new TrashBouncerAdmin();
   
 #### Managing log entries
