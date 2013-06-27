@@ -165,7 +165,7 @@ Only the first argument is nessecary the others default to:
                       
 If you know the id and you need details of only just one log entry use
    
-   $adminFilter->getLogEntry($id);
+    $adminFilter->getLogEntry($id);
                       
 Of course you can delete log entries, too:
 
@@ -210,7 +210,7 @@ then one language treated.
     This function saves the content of the categories, tokens, and specialtokens 
     tables to a file and adds some information for later use.
     -   `$filename` has to be a writeable path-/filename
-    -   `$commentstring` defaults to '' and can be used to tag the file
+    -   `$commentstring` defaults to `''` and can be used to tag the file
     -   `$overwrite` defaults to `FALSE` and tells the method wether to 
         overwrite a file that maybe already exists. If this argument is `FALSE` 
         and the file `$filename` already exists, nothing happens.
